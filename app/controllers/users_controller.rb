@@ -28,7 +28,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        seedz(@user.username, @user.id)
+        if @user.fetch_data
+          fetch(@user.lastfm_account, @user.id)
+        end
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -55,6 +57,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    destroy_albums(@user.id)
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
@@ -70,7 +73,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :lastfm_account, :fetch, :name, :bio, :profile_image, :background_image, :password, :password_confirmation)
+      params.require(:user).permit(:username, :email, :lastfm_account, :fetch_data, :name, :bio, :profile_image, :background_image, :password, :password_confirmation)
     end
 
 end

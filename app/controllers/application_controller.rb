@@ -22,13 +22,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def seedz(username, id)
+  def fetch(account, id)
     LastFM.api_key     = "75003985c11f78b76ce846ceac87e15a"
     LastFM.client_name = "My awesome app"
-    result = LastFM::User.get_top_albums(:user => username)
+    result = LastFM::User.get_top_albums(:user => account)
     result["topalbums"]["album"].each do |item|
       new_album = Album.create(title: item["name"], artist: item["artist"]["name"], cover_art: item["image"][3]["#text"], info_url: item["url"], user_id: id)
     end
+  end
+
+  def destroy_albums(id)
+    albums_to_destroy = Album.where(:user_id => id)
+    albums_to_destroy.destroy_all
   end
 
 end
