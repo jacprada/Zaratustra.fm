@@ -31,7 +31,7 @@ class UsersController < ApplicationController
         if @user.fetch_data
           fetch(@user.lastfm_account, @user.id)
         end
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to login_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     destroy_albums(@user.id)
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
