@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :logged_in?
   helper_method :authenticate
+  helper_method :get_playlists
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -31,7 +32,7 @@ class ApplicationController < ActionController::Base
 
   def fetch_albums(account, id)
     LastFM.api_key     = "75003985c11f78b76ce846ceac87e15a"
-    LastFM.client_name = "My awesome app"
+    LastFM.client_name = "Zaratustra.fm"
     result = LastFM::User.get_top_albums(:user => account)
     result["topalbums"]["album"].each do |item|
       new_album = Album.create(title: item["name"], artist: item["artist"]["name"], cover_art: item["image"][3]["#text"], info_url: item["url"], user_id: id)

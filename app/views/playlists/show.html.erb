@@ -31,11 +31,12 @@
   <%= @playlist.user.background_image %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Name:</strong>
-  <%= @playlist.name %>
-</p>
+  < % = @playlist.name %>
+</p> -->
 
+<%= render partial: "playlist", collection: @plays %>
 
 <ul>
 <%= render @playlist.albums %>
