@@ -20,6 +20,7 @@ class PlaylistsController < ApplicationController
 
   # GET /playlists/1/edit
   def edit
+    authenticate_user(@playlist.user)
   end
 
   # POST /playlists

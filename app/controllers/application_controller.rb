@@ -22,6 +22,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_user(user)
+    if user != current_user
+      flash[:error] = "You are not authorized to do that."
+      redirect_to root_path
+    end
+  end
+
   def fetch_albums(account, id)
     LastFM.api_key     = "75003985c11f78b76ce846ceac87e15a"
     LastFM.client_name = "My awesome app"

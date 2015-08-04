@@ -20,6 +20,7 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1/edit
   def edit
+    authenticate_user(@album.user)
   end
 
   # POST /albums
