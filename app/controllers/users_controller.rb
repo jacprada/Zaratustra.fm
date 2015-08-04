@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         if @user.fetch_data
-          fetch(@user.lastfm_account, @user.id)
+          fetch_albums(@user.lastfm_account, @user.id)
         end
         format.html { redirect_to login_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
@@ -45,6 +45,9 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        if @user.fetch_data
+          update_albums(@user.lastfm_account, @user.id)
+        end
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else

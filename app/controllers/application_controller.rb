@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def fetch(account, id)
+  def fetch_albums(account, id)
     LastFM.api_key     = "75003985c11f78b76ce846ceac87e15a"
     LastFM.client_name = "My awesome app"
     result = LastFM::User.get_top_albums(:user => account)
@@ -34,6 +34,11 @@ class ApplicationController < ActionController::Base
   def destroy_albums(id)
     albums_to_destroy = Album.where(:user_id => id)
     albums_to_destroy.destroy_all
+  end
+
+  def update_albums(account, id)
+    destroy_albums(id)
+    fetch_albums(account, id)
   end
 
 end
