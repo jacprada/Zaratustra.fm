@@ -25,6 +25,28 @@
   <%= @album.review %>
 </p>
 
+<% if logged_in? %>
+<p>
+  <%= link_to "upvote", like_album_path(@album), method: :put %>
+</p>
+<% end %>
+
+<p>
+  <strong>Thumbs Up:</strong>
+  <%= @album.thumbs_up %>
+</p>
+
+<% if logged_in? %>
+<p>
+  <%= link_to "downvote", dislike_album_path(@album), method: :put %>
+</p>
+<% end %>
+
+<p>
+  <strong>Thumbs Down:</strong>
+  <%= @album.thumbs_down %>
+</p>
+
 <p>
   <strong>Info url:</strong>
   <%= @album.info_url %>
