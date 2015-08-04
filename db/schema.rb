@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804082738) do
+ActiveRecord::Schema.define(version: 20150804083751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150804082738) do
     t.datetime "updated_at",       null: false
     t.string   "password_digest"
     t.string   "lastfm_account"
-    t.boolean  "fetch"
+    t.boolean  "fetch_data?"
   end
 
   add_foreign_key "albums", "playlists"
