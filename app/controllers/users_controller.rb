@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        if @user.fetch_data
+        if @user.fetch_data && @user.lastfm_account != ""
           fetch_albums(@user.lastfm_account, @user.id)
         end
         format.html { redirect_to login_path, notice: 'User was successfully created.' }
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        if @user.fetch_data
+        if @user.fetch_data && @user.lastfm_account != ""
           update_albums(@user.lastfm_account, @user.id)
         end
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
