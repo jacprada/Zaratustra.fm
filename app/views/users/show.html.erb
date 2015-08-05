@@ -31,9 +31,9 @@
 </p>
 
 <ul>
-<strong>Playlists:</strong>
-<li><%= link_to @user.try(:username), @user %></li>
-<%= render @user.playlists %>
+  <strong>Playlists:</strong>
+  <li><%= link_to "All", @user %></li>
+  <%= render @user.playlists %>
 </ul>
 
 <ul>
