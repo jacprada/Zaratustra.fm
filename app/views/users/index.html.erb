@@ -10,11 +10,10 @@
 
 <% @users.each do |user| %>
 <ul class="pricing-table">
-  <li class="title"><%= user.username %></li>
-  <div class="text-center"><%= link_to image_tag(user.profile_image.thumb.url), user %></div>
-  <li class="price"><%= user.name %></li>
+  <li class="title">@<%= user.username %></li>
+  <div class="text-center"><%= image_tag user.profile_image.thumb.url %></div>
+  <li class="price"><%= link_to user.name, user %></li>
   <li class="description"><%= user.bio %></li>
-  <li class="cta-button"><a class="button" href="#">Buy Now</a></li>
 </ul>
 <% end %>
 
