@@ -58,5 +58,4 @@ class ApplicationController < ActionController::Base
     @plays = Playlist.where(:user_id => id)
   end
 
-
 end

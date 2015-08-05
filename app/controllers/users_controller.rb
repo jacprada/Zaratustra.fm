@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @q = User.ransack(params[:q])
     if params[:q].present?
       @q = User.ransack(params[:q])
-      @users = @q.result(distinct: true).order('LOWER(username)')
+      @users = @q.result(distinct: true)
     else
       @users = User.all.order('LOWER(username)')
     end

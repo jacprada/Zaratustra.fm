@@ -5,7 +5,7 @@ class PlaylistsController < ApplicationController
   # GET /playlists
   # GET /playlists.json
   def index
-    @playlists = current_user.playlists.('LOWER(name)')
+    @playlists = current_user.playlists.order('LOWER(name)')
   end
 
   # GET /playlists/1
