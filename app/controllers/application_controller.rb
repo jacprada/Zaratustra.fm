@@ -54,4 +54,9 @@ class ApplicationController < ActionController::Base
     fetch_albums(account, id)
   end
 
+  def show_playlists(id)
+    @plays = Playlist.where(:user_id => id)
+  end
+
+
 end

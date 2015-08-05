@@ -1,6 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Username:</strong>
+  <%= @album.user.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @album.user.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @album.user.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @album.user.bio %>
+</p>
+
+<p>
+  <strong>Profile image:</strong>
+  <%= @album.user.profile_image %>
+</p>
+
+
+<p>
+  <strong>Background image:</strong>
+  <%= @album.user.background_image %>
+</p>
+
+<ul>
+  <strong>Playlists:</strong>
+  <li><%= link_to "All", @album.user %></li>
+  <%= render partial: "playlists/playlist", collection: @plays %>
+</ul>
+
+<p>
   <strong>Title:</strong>
   <%= @album.title %>
 </p>
@@ -17,7 +54,7 @@
 
 <p>
   <strong>Cover art:</strong>
-  <%= @album.cover_art %>
+  <%= image_tag @album.cover_art %>
 </p>
 
 <p>
@@ -49,18 +86,12 @@
 
 <p>
   <strong>Info url:</strong>
-  <%= @album.info_url %>
+  <%= link_to @album.info_url, @album.info_url, :target => "_blank" %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= link_to @album.user.try(:username), @album.user %>
-</p>
+<% if current_user == @album.user %>
+<li><%= link_to 'Edit', edit_album_path(@album) %></li>
+<li><%= link_to 'Delete', @album, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+<% end %>
 
-<p>
-  <strong>Playlist:</strong>
-  <%= @album.playlist %>
-</p>
-
-<%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>

@@ -11,7 +11,7 @@ class PlaylistsController < ApplicationController
   # GET /playlists/1
   # GET /playlists/1.json
   def show
-    @plays = Playlist.where(:user_id => @playlist.user.id)
+    show_playlists(@playlist.user.id)
   end
 
   # GET /playlists/new
