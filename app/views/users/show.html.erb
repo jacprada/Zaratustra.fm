@@ -22,12 +22,12 @@
 
 <p>
   <strong>Profile image:</strong>
-  <%= @user.profile_image %>
+  <%= image_tag @user.profile_image.url %>
 </p>
 
 <p>
   <strong>Background image:</strong>
-  <%= @user.background_image %>
+  <%= image_tag @user.background_image.url %>
 </p>
 
 <ul>
