@@ -1,47 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div id="wrap">
 
-<p>
-  <strong>Username:</strong>
-  <%= @playlist.user.username %>
-</p>
+  <div class="panel callout radius">
+    <h3 class="text-center"><%= @playlist.user.name %></h3>
+    <div class="text-center"><%= image_tag @playlist.user.profile_image.thumb.url %></div>
+    <h5 class="text-center">@<%= @playlist.user.username %></h5>
+    <h5 class="text-center"><%= @playlist.user.bio %></h5>
+  </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @playlist.user.email %>
-</p>
+  <dl class="sub-nav hide-for-small-only">
+    <dt class="center">Playlists:</dt>
+    <dd><%= link_to "All", @playlist.user %></dd>
+    <dd><%= render partial: "playlist", collection: @plays.order('LOWER(name)') %></dd>
+  </dl>
 
-<p>
-  <strong>Name:</strong>
-  <%= @playlist.user.name %>
-</p>
+  <div class="row" data-equalizer>
+    <%= render @playlist.albums.order('LOWER(artist)') %>
+  </div>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @playlist.user.bio %>
-</p>
+  <div id="push"></div>
+</div>
 
-<p>
-  <strong>Profile image:</strong>
-  <%= @playlist.user.profile_image %>
-</p>
-
-
-<p>
-  <strong>Background image:</strong>
-  <%= @playlist.user.background_image %>
-</p>
-
-<ul>
-  <strong>Playlists:</strong>
-  <li><%= link_to "All", @playlist.user %></li>
-  <%= render partial: "playlist", collection: @plays.order('LOWER(name)') %>
-</ul>
-
-<ul>
-<%= render @playlist.albums.order('LOWER(artist)') %>
-</ul>
-
-<% if current_user == @playlist.user %>
-<li><%= link_to 'Edit', edit_playlist_path(@playlist) %></li>
-<li><%= link_to 'Delete', @playlist, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-<% end %>
+<div id="footer">
+  <% if current_user == @playlist.user %>
+  <li id="footer_li"><%= link_to 'Edit Playlist', edit_playlist_path(@playlist) %></li>
+  <li id="footer_li"><%= link_to 'Delete Playlist', @playlist, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <% end %>
+</div>
