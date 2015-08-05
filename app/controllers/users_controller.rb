@@ -4,7 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    if params[:q].present?
+      @q = User.ransack(params[:q])
+      @users = @q.result(distinct: true)
+    else
+      @users = User.all
+    end
   end
 
   # GET /users/1

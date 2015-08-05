@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
+<div class="search">
+<%= search_form_for @q do |f| %>
+<%= f.text_field :username_cont, :placeholder => "Search" %>
+<div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+</div>
 
 <h1>Listing Users</h1>
 
