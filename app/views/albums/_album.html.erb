@@ -1,12 +1,11 @@
 <li>
   <ul>
-    <li><%= image_tag album.cover_art %></li>
+    <li><%= link_to image_tag(album.cover_art), album %></li>
     <li>Title: <%= album.title %></li>
     <li>Artist: <%= album.artist %></li>
     <li>Release Year: <%= album.year %></li>
     <li>Review: <%= album.review %></li>
-    <li>Info: <%= link_to album.info_url, album.info_url %></li>
-    <li><%= link_to 'Show', album %></li>
+    <li>Info: <%= link_to album.info_url, album.info_url, :target => "_blank" %></li>
     <% if current_user == album.user %>
     <li><%= link_to 'Edit', edit_album_path(album) %></li>
     <li><%= link_to 'Delete', album, method: :delete, data: { confirm: 'Are you sure?' } %></li>
