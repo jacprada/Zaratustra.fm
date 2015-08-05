@@ -8,35 +8,15 @@
 
 <h1>Listing Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Name</th>
-      <th>Bio</th>
-      <th>Profile image</th>
-      <th>Background image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @users.each do |user| %>
+<ul class="pricing-table">
+  <li class="title"><%= user.username %></li>
+  <div class="text-center"><%= link_to image_tag(user.profile_image.thumb.url), user %></div>
+  <li class="price"><%= user.name %></li>
+  <li class="description"><%= user.bio %></li>
+  <li class="cta-button"><a class="button" href="#">Buy Now</a></li>
+</ul>
+<% end %>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.username %></td>
-        <td><%= user.email %></td>
-        <td><%= user.name %></td>
-        <td><%= user.bio %></td>
-        <td><%= link_to image_tag user.profile_image.thumb.url %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New User', new_user_path %>

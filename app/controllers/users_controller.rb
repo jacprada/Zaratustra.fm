@@ -39,7 +39,8 @@ class UsersController < ApplicationController
         if @user.fetch_data && @user.lastfm_account != ""
           fetch_albums(@user.lastfm_account, @user.id)
         end
-        format.html { redirect_to login_path, notice: 'User was successfully created.' }
+        session[:user_id] = @user.id
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -68,8 +69,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    destroy_playlist(@user.id)
     destroy_albums(@user.id)
+    destroy_playlist(@user.id)
+    session[:user_id] = nil
     @user.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
