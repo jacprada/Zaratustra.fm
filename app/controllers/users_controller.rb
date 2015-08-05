@@ -68,6 +68,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    destroy_playlist(@user.id)
     destroy_albums(@user.id)
     @user.destroy
     respond_to do |format|

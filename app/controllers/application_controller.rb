@@ -44,6 +44,11 @@ class ApplicationController < ActionController::Base
     albums_to_destroy.destroy_all
   end
 
+  def destroy_playlist(id)
+    playlists_to_destroy = Playlist.where(:user_id => id)
+    playlists_to_destroy.destroy_all
+  end
+
   def empty_playlist(id)
     albums_to_move = Album.where(:playlist_id => id)
     albums_to_move.update_all(:playlist_id => "")

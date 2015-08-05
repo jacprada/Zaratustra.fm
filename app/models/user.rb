@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true, length: { maximum: 20 }
   validates :email, presence: true, uniqueness: true
-  validates :name, length: { maximum: 20 }
+  validates :name, presence: true, length: { maximum: 20 }
   validates :bio, length: { maximum: 140 }
 end
