@@ -5,28 +5,18 @@
   <h5 class="text-center"><%= @user.bio %></h5>
 </div>
 
+  <dl class="sub-nav hide-for-small-only">
+    <dt class="center">Playlists:</dt>
+    <dd><%= link_to "All", @user %></dd>
+    <dd><%= render @user.playlists.order('LOWER(name)') %></dd>
+  </dl>
 
-
-<p>
-  <strong>Background image:</strong>
-  <%= image_tag @user.background_image.thumb.url %>
-</p>
-
-<dl class="sub-nav">
-  <dt>Filter:</dt>
-  <dd class="active"><a href="#">All</a></dd>
-  <dd><a href="#">Active</a></dd>
-  <dd><a href="#">Pending</a></dd>
-  <dd class="hide-for-small-only"><a href="#">Suspended</a></dd>
-</dl>
-
-<ul>
-  <strong>Playlists:</strong>
-  <li><%= link_to "All", @user %></li>
-  <%= render @user.playlists.order('LOWER(name)') %>
-</ul>
-
-<ul>
-<strong>Albums:</strong>
 <%= render @user.albums.order('LOWER(artist)') %>
-</ul>
+
+
+
+
+<!-- <ul>
+  <strong>Albums:</strong>
+  < %= render @user.albums.order('LOWER(artist)') %>
+</ul> -->
