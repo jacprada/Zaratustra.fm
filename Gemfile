@@ -5,6 +5,7 @@ gem 'ransack'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'carrierwave', '0.10.0'
 gem 'rmagick'
+gem 'foundation-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
 # Use postgresql as the database for Active Record
