@@ -1,97 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div id="wrap">
 
-<p>
-  <strong>Username:</strong>
-  <%= @album.user.username %>
-</p>
+  <div class="panel callout radius">
+    <h3 class="text-center"><%= @album.user.name %></h3>
+    <div class="text-center"><%= image_tag @album.user.profile_image.thumb.url %></div>
+    <h5 class="text-center">@<%= @album.user.username %></h5>
+    <h5 class="text-center"><%= @album.user.bio %></h5>
+  </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @album.user.email %>
-</p>
+  <dl class="sub-nav hide-for-small-only">
+    <dt class="center">Playlists:</dt>
+    <dd><%= link_to "All", @album.user %></dd>
+    <dd><%= render partial: "playlists/playlist", collection: @plays.order('LOWER(name)') %></dd>
+  </dl>
 
-<p>
-  <strong>Name:</strong>
-  <%= @album.user.name %>
-</p>
+  <div class="panel callout radius">
+    <div class="text-center"><%= image_tag @album.cover_art %></div>
+    <h3 class="text-center"><%= @album.title %></h3>
+    <h3 class="text-center"><%= @album.artist %></h3>
+    <h3 class="text-center"><%= @album.year %></h3>
+    <h3 class="text-center"><%= @album.review %></h3>
+    <h3 class="text-center"><%= link_to "Album Details", @album.info_url, :target => "_blank" %></h3>
+    <% if logged_in? %>
+    <h3 class="text-center"><%= link_to "upvote", like_album_path(@album), method: :put %> <%= link_to "downvote", dislike_album_path(@album), method: :put %></h3>
+    <% end %>
+    <h3 class="text-center">Thumbs Up: <%= @album.thumbs_up %> Thumbs Down: <%= @album.thumbs_down %></h3>
+  </div>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @album.user.bio %>
-</p>
+  <div id="push"></div>
+</div>
 
-<p>
-  <strong>Profile image:</strong>
-  <%= @album.user.profile_image %>
-</p>
-
-
-<p>
-  <strong>Background image:</strong>
-  <%= @album.user.background_image %>
-</p>
-
-<ul>
-  <strong>Playlists:</strong>
-  <li><%= link_to "All", @album.user %></li>
-  <%= render partial: "playlists/playlist", collection: @plays %>
-</ul>
-
-<p>
-  <strong>Title:</strong>
-  <%= @album.title %>
-</p>
-
-<p>
-  <strong>Artist:</strong>
-  <%= @album.artist %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @album.year %>
-</p>
-
-<p>
-  <strong>Cover art:</strong>
-  <%= image_tag @album.cover_art %>
-</p>
-
-<p>
-  <strong>Review:</strong>
-  <%= @album.review %>
-</p>
-
-<% if logged_in? %>
-<p>
-  <%= link_to "upvote", like_album_path(@album), method: :put %>
-</p>
-<% end %>
-
-<p>
-  <strong>Thumbs Up:</strong>
-  <%= @album.thumbs_up %>
-</p>
-
-<% if logged_in? %>
-<p>
-  <%= link_to "downvote", dislike_album_path(@album), method: :put %>
-</p>
-<% end %>
-
-<p>
-  <strong>Thumbs Down:</strong>
-  <%= @album.thumbs_down %>
-</p>
-
-<p>
-  <strong>Info url:</strong>
-  <%= link_to @album.info_url, @album.info_url, :target => "_blank" %>
-</p>
-
-<% if current_user == @album.user %>
-<li><%= link_to 'Edit', edit_album_path(@album) %></li>
-<li><%= link_to 'Delete', @album, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-<% end %>
-
-<%= link_to 'Back', albums_path %>
+<div id="footer">
+  <% if current_user == @album.user %>
+  <li id="footer_li"><%= link_to 'Edit Album', edit_album_path(@album) %></li>
+  <li id="footer_li"><%= link_to 'Delete Album', @album, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <% end %>
+</div>

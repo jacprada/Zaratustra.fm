@@ -1,45 +1,63 @@
 <%= form_for(@album) do |f| %>
-  <% if @album.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
+<% if @album.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
 
-      <ul>
-      <% @album.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <ul>
+    <% @album.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<fieldset>
+  <legend>Your Data</legend>
+  <div class="row">
+    <div class="large-5 columns">
+      <label>Album Name
+        <%= f.text_field :title %>
+      </label>
     </div>
-  <% end %>
+    <div class="large-5 columns">
+      <label>Artist Name
+        <%= f.text_field :artist %>
+      </label>
+    </div>
+    <div class="large-2 columns">
+      <label>Year
+        <%= f.number_field :year %>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+      <label>Info Url
+        <%= f.text_field :info_url %>
+      </label>
+    </div>
+    <div class="large-4 columns">
+      <label>Covert Art Url
+        <%= f.text_area :cover_art %>
+      </label>
+    </div>
+    <div class="large-4 columns">
+      <label>Playlist
+        <%= f.collection_select(:playlist_id, current_user.playlists, :id, :name, :include_blank => true) %>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Review
+        <%= f.text_area :review %>
+      </label>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :artist %><br>
-    <%= f.text_field :artist %>
-  </div>
-  <div class="field">
-    <%= f.label :year %><br>
-    <%= f.number_field :year %>
-  </div>
-  <div class="field">
-    <%= f.label :cover_art %><br>
-    <%= f.text_area :cover_art %>
-  </div>
-  <div class="field">
-    <%= f.label :review %><br>
-    <%= f.text_area :review %>
-  </div>
-  <div class="field">
-    <%= f.label :info_url %><br>
-    <%= f.text_field :info_url %>
-  </div>
-  <div class="field">
-    <%= f.label :playlist_id %><br>
-    <%= f.collection_select(:playlist_id, current_user.playlists, :id, :name, :include_blank => true) %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+</fieldset>
+
 <% end %>
