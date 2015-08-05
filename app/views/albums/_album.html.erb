@@ -1,7 +1,5 @@
-<div class="panel callout radius">
-<%= link_to image_tag(album.cover_art), album %>
-<%= album.artist %>
-<%= album.title %>
+<div class="large-6 columns panel text-center" data-equalizer-watch>
+  <div><%= link_to image_tag(album.cover_art), album %></div>
+  <h3><%= album.artist %></h3>
+  <h4><%= album.title %></h4>
 </div>
-
-

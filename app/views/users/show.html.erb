@@ -5,15 +5,15 @@
   <h5 class="text-center"><%= @user.bio %></h5>
 </div>
 
-  <dl class="sub-nav hide-for-small-only">
-    <dt class="center">Playlists:</dt>
-    <dd><%= link_to "All", @user %></dd>
-    <dd><%= render @user.playlists.order('LOWER(name)') %></dd>
-  </dl>
+<dl class="sub-nav hide-for-small-only">
+  <dt class="center">Playlists:</dt>
+  <dd><%= link_to "All", @user %></dd>
+  <dd><%= render @user.playlists.order('LOWER(name)') %></dd>
+</dl>
 
+<div class="row" data-equalizer>
 <%= render @user.albums.order('LOWER(artist)') %>
-
-
+</div>
 
 
 <!-- <ul>
