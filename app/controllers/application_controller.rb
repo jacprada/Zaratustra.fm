@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_albums(account, id)
-    LastFM.api_key     = ENV["LASTFM_APIKEY"]
+    LastFM.api_key     = ENV["SCROBBLER2_APIKEY"]
     LastFM.client_name = "Zaratustra.fm"
     result = LastFM::User.get_top_albums(:user => account)
     result["topalbums"]["album"].each do |item|
@@ -42,6 +42,11 @@ class ApplicationController < ActionController::Base
   def destroy_albums(id)
     albums_to_destroy = Album.where(:user_id => id)
     albums_to_destroy.destroy_all
+  end
+
+  def empty_playlist(id)
+    albums_to_move = Album.where(:playlist_id => id)
+    albums_to_move.update_all(:playlist_id => "")
   end
 
   def update_albums(account, id)

@@ -1,10 +1,1 @@
-<li>
-  <ul>
-    <li><%= link_to playlist.name, playlist %></li>
-    <li><%= link_to 'Show', playlist %></li>
-    <% if current_user == playlist.user %>
-    <li><%= link_to 'Edit', edit_playlist_path(playlist) %></li>
-    <li><%= link_to 'Delete', playlist, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    <% end %>
-  </ul>
-</li>
+<li><%= link_to playlist.name, playlist %></li>

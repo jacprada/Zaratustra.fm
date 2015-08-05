@@ -41,6 +41,7 @@
 <%= render @playlist.albums %>
 </ul>
 
-
-<%= link_to 'Edit', edit_playlist_path(@playlist) %> |
-<%= link_to 'Back', playlists_path %>
+<% if current_user == @playlist.user %>
+<li><%= link_to 'Edit', edit_playlist_path(@playlist) %></li>
+<li><%= link_to 'Delete', @playlist, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+<% end %>
