@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = current_user.albums
+    @albums = current_user.albums.('LOWER(artist)')
   end
 
   # GET /albums/1
