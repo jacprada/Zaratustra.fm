@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get 'errors/internal_server_error'
 
+  get "/albums", to: redirect("/users")
+  get "/playlists", to: redirect("/users")
+
   resources :albums
   resources :playlists
   resources :users
