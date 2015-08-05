@@ -1,34 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
-
-<p>
-  <strong>Profile image:</strong>
+<div class="panel callout radius">
+  <h3><%= @user.name %></h3>
   <%= image_tag @user.profile_image.thumb.url %>
-</p>
+  <h5>@<%= @user.username %></h5>
+  <h5><%= @user.bio %></h5>
+</div>
+
+
 
 <p>
   <strong>Background image:</strong>
   <%= image_tag @user.background_image.thumb.url %>
 </p>
+
+<dl class="sub-nav">
+  <dt>Filter:</dt>
+  <dd class="active"><a href="#">All</a></dd>
+  <dd><a href="#">Active</a></dd>
+  <dd><a href="#">Pending</a></dd>
+  <dd class="hide-for-small-only"><a href="#">Suspended</a></dd>
+</dl>
 
 <ul>
   <strong>Playlists:</strong>
