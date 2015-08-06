@@ -22,7 +22,7 @@
 
 <div id="footer">
   <% if current_user == @playlist.user %>
-  <li id="footer_li"><%= link_to 'Edit Playlist', edit_playlist_path(@playlist) %></li>
-  <li id="footer_li"><%= link_to 'Delete Playlist', @playlist, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <li id="footer_li"><%= link_to 'Edit Playlist', edit_playlist_path(@playlist), class: "small button" %></li>
+  <li id="footer_li"><%= link_to 'Delete Playlist', @playlist, method: :delete, class: "small button",data: { confirm: 'Are you sure?' } %></li>
   <% end %>
 </div>

@@ -50,9 +50,9 @@
   </div>
 </div>
 <div class="row">
-  <div class="large-4 columns">
+  <div class="large-4 columns text-center">
     <label>Profile Picture
-      <%= f.file_field :profile_image %>
+      <%= f.file_field :profile_image, class: "button tiny" %>
     </label>
   </div>
   <div class="large-4 columns">
@@ -60,13 +60,13 @@
       <%= f.text_field :lastfm_account %>
     </label>
   </div>
-  <div class="large-4 columns">
+  <div class="large-4 columns text-center">
     <label>Fetch Data?</label>
     <%= f.check_box :fetch_data %><label for="checkbox">Yes</label>
   </div>
 </div>
-<div class="actions">
-  <%= f.submit %>
+<div id="create_button" class="actions text-center">
+  <%= f.submit class: "button" %>
 </div>
 </fieldset>
 

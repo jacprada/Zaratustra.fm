@@ -453,7 +453,7 @@ $shiny-edge-active-color: rgba($black, .2);
 // $button-font-color-alt: $oil;
 $button-font-med: rem-calc(18);
 // $button-font-tny: rem-calc(11);
-// $button-font-sml: rem-calc(13);
+$button-font-sml: rem-calc(15);
 // $button-font-lrg: rem-calc(20);
 // $button-font-weight: $font-weight-normal;
 // $button-font-align: center;
@@ -989,7 +989,7 @@ $legend-bg: rgba(250,250,250,0.5);
 $panel-bg: #fafafa;//scale-color($white, $lightness: -5%);
 $panel-border-style: solid;
 $panel-border-size: 1px;
-$callout-panel-bg: scale-color($primary-color, $lightness: 94%);
+$callout-panel-bg: #fafafa;//scale-color($primary-color, $lightness: 94%);
 
 // We use this % to control how much we darken things on hover
 // $panel-border-color: scale-color($panel-bg, $lightness: -11%);
@@ -1239,18 +1239,18 @@ $price-title-color: #fafafa;
 // $include-html-nav-classes: $include-html-classes;
 
 // We use these to control margin and padding
-$sub-nav-list-margin: 0 auto;
+// $sub-nav-list-margin: 0 auto;
 // $sub-nav-list-padding-top: rem-calc(4);
 
 // We use this to control the definition
 // $sub-nav-font-family: $body-font-family;
-// $sub-nav-font-size: rem-calc(14);
-// $sub-nav-font-color: $aluminum;
-// $sub-nav-font-weight: $font-weight-normal;
+$sub-nav-font-size: rem-calc(18);
+$sub-nav-font-color: #37543d;
+$sub-nav-font-weight: $font-weight-bold;
 // $sub-nav-text-decoration: none;
 // $sub-nav-padding: rem-calc(3 16);
 // $sub-nav-border-radius: 3px;
-// $sub-nav-font-color-hover: scale-color($sub-nav-font-color, $lightness: -25%);
+$sub-nav-font-color-hover: #8de9ad;//scale-color($sub-nav-font-color, $lightness: -25%);
 
 
 // We use these to control the active item styles

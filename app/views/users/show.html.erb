@@ -1,16 +1,20 @@
-<div class="panel callout radius">
-  <h3 class="text-center"><%= @user.name %></h3>
-  <div class="text-center"><%= image_tag @user.profile_image.thumb.url %></div>
-  <h5 class="text-center">@<%= @user.username %></h5>
-  <h5 class="text-center"><%= @user.bio %></h5>
+<div id="profile" class="row">
+  <div class="large-12 columns"><h2 id="profile_h2" class="text-center"><%= @user.name %></h2></div>
+  <div id="profile_picture" class="large-12 columns text-center"><%= image_tag @user.profile_image.thumb.url %></div>
+  <div class="large-12 columns">
+    <h3 id="profile_h3" class="text-center">@<%= @user.username %></h3>
+    <h4 class="text-center"><%= @user.bio %></h4>
+  </div>
 </div>
 
-<dl class="sub-nav hide-for-small-only">
-  <dt class="center">Playlists:</dt>
-  <dd><%= link_to "All", @user %></dd>
-  <dd><%= render @user.playlists.order('LOWER(name)') %></dd>
-</dl>
+<div class="row">
+  <dl class="sub-nav large-12 columns center hide-for-small-only">
+    <dt>#</dt>
+    <dd><%= link_to "All Albums", @user %></dd>
+    <dd><%= render @user.playlists.order('LOWER(name)') %></dd>
+  </dl>
+</div>
 
 <div class="row" data-equalizer>
-<%= render @user.albums.order('LOWER(artist)') %>
+  <%= render @user.albums.order('LOWER(artist)') %>
 </div>

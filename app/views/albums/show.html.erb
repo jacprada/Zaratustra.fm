@@ -1,17 +1,21 @@
 <div id="wrap">
 
-  <div class="panel callout radius">
-    <h3 class="text-center"><%= @album.user.name %></h3>
-    <div class="text-center"><%= image_tag @album.user.profile_image.thumb.url %></div>
-    <h5 class="text-center">@<%= @album.user.username %></h5>
-    <h5 class="text-center"><%= @album.user.bio %></h5>
+  <div id="profile" class="row">
+    <div class="large-12 columns"><h2 id="profile_h2" class="text-center"><%= @album.user.name %></h2></div>
+    <div id="profile_picture" class="large-12 columns text-center"><%= image_tag @album.user.profile_image.thumb.url %></div>
+    <div class="large-12 columns">
+      <h3 id="profile_h3" class="text-center">@<%= @album.user.username %></h3>
+      <h4 class="text-center"><%= @album.user.bio %></h4>
+    </div>
   </div>
 
-  <dl class="sub-nav hide-for-small-only">
-    <dt class="center">Playlists:</dt>
-    <dd><%= link_to "All", @album.user %></dd>
-    <dd><%= render partial: "playlists/playlist", collection: @plays.order('LOWER(name)') %></dd>
-  </dl>
+  <div class="row">
+    <dl class="sub-nav large-12 columns center hide-for-small-only">
+      <dt>#</dt>
+      <dd><%= link_to "All", @album.user %></dd>
+      <dd><%= render partial: "playlists/playlist", collection: @plays.order('LOWER(name)') %></dd>
+    </dl>
+  </div>
 
   <div class="panel callout radius">
     <div class="text-center"><%= image_tag(@album.cover_art, size: "300x300") %></div>
@@ -31,7 +35,7 @@
 
 <div id="footer">
   <% if current_user == @album.user %>
-  <li id="footer_li"><%= link_to 'Edit Album', edit_album_path(@album) %></li>
-  <li id="footer_li"><%= link_to 'Delete Album', @album, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <li id="footer_li"><%= link_to 'Edit Album', edit_album_path(@album), class: "small button" %></li>
+  <li id="footer_li"><%= link_to 'Delete Album', @album, method: :delete, class: "small button", data: { confirm: 'Are you sure?' } %></li>
   <% end %>
 </div>

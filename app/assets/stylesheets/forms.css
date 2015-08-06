@@ -14,3 +14,25 @@
 #h4_browse {
   padding: 20px 0 25px 0;
 }
+
+#create_button {
+  margin-top: 20px;
+}
+
+#profile {
+  padding: 20px 0;
+}
+
+#profile_picture {
+  margin: 5px 0 10px 0;
+}
+
+#profile_h2 {
+  font-weight: 600;
+}
+
+#profile_h3 {
+  color: #37543d;
+  font-weight: 600;
+  font-style: italic;
+}
