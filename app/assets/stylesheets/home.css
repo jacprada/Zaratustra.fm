@@ -1,0 +1,45 @@
+body {
+  background-image: url(bg.png);
+}
+
+#section_one {
+  height: calc(100vh - 125px);
+  margin-top: 5%;
+}
+
+#section_two {
+  height:95vh;
+}
+
+#home_intro_big {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+#fm {
+  color: #8de9ad;
+}
+
+#home_intro_medium {
+  font-size: 32px;
+  font-weight: 700;
+  font-style: italic;
+  color: #37543d;
+}
+
+#home_intro_small {
+  font-weight: 600;
+}
+
+#home_buttons_div {
+  margin: 40px 0 40px 0;
+}
+
+#home_image_div {
+  margin-top: -20px;
+}
+
+#home_buttons {
+  font-size: 20px;
+  margin: 0 10px 0 10px;
+}
