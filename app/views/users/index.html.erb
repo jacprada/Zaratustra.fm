@@ -15,14 +15,14 @@
 <div class="row" data-equalizer="foo">
   <div class="large-12 columns">
     <div class="panel text-center" data-equalizer-watch="foo">
-    <h3>@<%= user.username %></h3>
+    <h2>@<%= user.username %></h2>
     <div class="row" data-equalizer="bar">
-      <div class="panel large-4 columns" data-equalizer-watch="bar">
+      <div id="image_browse" class="panel large-4 columns" data-equalizer-watch="bar">
         <%= image_tag user.profile_image.thumb.url %>
       </div>
-      <div class="panel large-8 columns" data-equalizer-watch="bar">
-        <h1><%= link_to user.name, user, class: "button" %></h1>
-        <%= user.bio %>
+      <div id="content_browse" class="panel large-8 columns" data-equalizer-watch="bar">
+        <h3 id="h4_browse"><%= user.bio %></h3>
+        <h1 id="h1_browse"><%= link_to user.name, user, class: "button" %></h1>
       </div>
     </div>
     </div>

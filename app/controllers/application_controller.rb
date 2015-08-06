@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_albums(account, id)
-    LastFM.api_key     = ENV["SCROBBLER2_APIKEY"]
+    LastFM.api_key     = ENV["LASTFM_APIKEY"]
     LastFM.client_name = "Zaratustra.fm"
     result = LastFM::User.get_top_albums(:user => account)
     result["topalbums"]["album"].each do |item|
