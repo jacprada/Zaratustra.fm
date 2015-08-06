@@ -638,10 +638,10 @@ $button-bg-color: #446b4c;//$primary-color;
 
 // We use these to style the labels in different ways
 // $form-label-pointer: pointer;
-// $form-label-font-size: rem-calc(14);
+$form-label-font-size: rem-calc(20);
 // $form-label-font-weight: $font-weight-normal;
 // $form-label-line-height: 1.5;
-// $form-label-font-color: scale-color($black, $lightness: 30%);
+$form-label-font-color: $black;//scale-color($black, $lightness: 30%);
 // $form-label-small-transform: capitalize;
 // $form-label-bottom-margin: 0;
 // $input-font-family: inherit;
@@ -1400,7 +1400,7 @@ $sub-nav-list-margin: 0 auto;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #446b4c; //$oil;
+$topbar-bg-color: #446B4C; //$oil;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1412,14 +1412,14 @@ $topbar-height: rem-calc(50);
 $topbar-title-font-size: rem-calc(25);
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: $white;
-// $topbar-link-color-hover: $white;
-// $topbar-link-color-active: $white;
-// $topbar-link-color-active-hover: $white;
+$topbar-link-color: #fafafa; //$white;
+$topbar-link-color-hover: #fafafa; //$white;
+$topbar-link-color-active: #fafafa; //$white;
+$topbar-link-color-active-hover: #fafafa; //$white;
 // $topbar-link-weight: $font-weight-normal;
 $topbar-link-font-size: rem-calc(18);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg: $topbar-bg;
+$topbar-link-bg: $oil;
 $topbar-link-bg-hover: #8de9ad; //$jet;
 // $topbar-link-bg-color-hover: $charcoal;
 $topbar-link-bg-active: $oil; //$primary-color;
