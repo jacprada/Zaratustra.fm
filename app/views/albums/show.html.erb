@@ -17,27 +17,26 @@
     </dl>
   </div>
 
-  <div class="row panel callout radius">
+  <div id="album_container" class="row panel callout radius">
     <div class="large-4 columns text-center"><%= image_tag(@album.cover_art, size: "300x300") %></div>
     <div class="large-8 columns">
-    <h1 id="album_tit" class="text-center"><%= @album.title %></h1>
-    <h3 class="text-center"><%= @album.artist %></h3>
-    <h4 class="text-center"><%= @album.year %></h4>
-    <h5 id="album_review" class="text-center"><%= @album.review %></h5>
-    <div class="text-center">
-    <%= link_to "Album Details", @album.info_url, :target => "_blank", class: "tiny button" %>
+      <h1 id="album_tit" class="text-center"><%= @album.title %></h1>
+      <h3 class="text-center"><%= @album.artist %></h3>
+      <h4 class="text-center"><%= @album.year %></h4>
+      <h5 id="album_review" class="text-center"><%= @album.review %></h5>
+      <div class="text-center">
+        <%= link_to "Album Details", @album.info_url, :target => "_blank", class: "tiny button" %>
+      </div>
+      <% if logged_in? %>
+      <div class="text-center">
+        <%= link_to "Like", like_album_path(@album), method: :put, class: "tiny button" %>
+        <button id="counter" class="tiny button disabled"><%= @album.thumbs_up %></button>
+        <%= link_to "Dislike", dislike_album_path(@album), method: :put, class: "tiny button" %>
+        <button id="counter" class="tiny button disabled"><%= @album.thumbs_down %></button>
+      </div>
+      <% end %>
     </div>
-    <% if logged_in? %>
-    <div class="text-center">
-    <%= link_to "Like", like_album_path(@album), method: :put, class: "tiny button" %>
-    <button id="counter" class="tiny button disabled"><%= @album.thumbs_up %></button>
-    <%= link_to "Dislike", dislike_album_path(@album), method: :put, class: "tiny button" %>
-    <button id="counter" class="tiny button disabled"><%= @album.thumbs_down %></button>
-    </div>
-    <% end %>
-    </div>
-    </div>
-
+  </div>
 
   <div id="push"></div>
 </div>

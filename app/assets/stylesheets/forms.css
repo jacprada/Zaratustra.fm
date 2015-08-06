@@ -63,3 +63,7 @@
   color: #333333;
   font-weight: bold;
 }
+
+#album_container {
+  margin-bottom: 50px;
+}
