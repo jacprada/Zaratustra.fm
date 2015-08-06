@@ -1,21 +1,33 @@
-<p id="notice"><%= notice %></p>
-<div class="search">
-<%= search_form_for @q do |f| %>
-<%= f.text_field :username_cont, :placeholder => "Search" %>
-<div class="actions"><%= f.submit "Search" %></div>
-<% end %>
-</div>
+<h1 id="headline_form" class="text-center">Browse Users</h1>
 
-<h1>Listing Users</h1>
+<div class="row">
+  <div class="search large-12 columns">
+    <%= search_form_for @q do |f| %>
+    <%= f.text_field :username_cont, :placeholder => "Search" %>
+  </div>
+</div>
+<div class="actions text-center">
+  <%= f.submit "Search", class: "button" %>
+</div>
+<% end %>
 
 <% @users.each do |user| %>
-<ul class="pricing-table">
-  <li class="title">@<%= user.username %></li>
-  <div class="text-center"><%= image_tag user.profile_image.thumb.url %></div>
-  <li class="price"><%= link_to user.name, user %></li>
-  <li class="description"><%= user.bio %></li>
-</ul>
+<div class="row" data-equalizer="foo">
+  <div class="large-12 columns">
+    <div class="panel text-center" data-equalizer-watch="foo">
+    <h3>@<%= user.username %></h3>
+    <div class="row" data-equalizer="bar">
+      <div class="panel large-4 columns" data-equalizer-watch="bar">
+        <%= image_tag user.profile_image.thumb.url %>
+      </div>
+      <div class="panel large-8 columns" data-equalizer-watch="bar">
+        <h1><%= link_to user.name, user, class: "button" %></h1>
+        <%= user.bio %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
 <% end %>
-
 
 

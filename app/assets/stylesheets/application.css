@@ -15,6 +15,7 @@
  *= require_self
  *= require stickyfooter
  *= require home
+ *= require forms
  *= require foundation_and_overrides
 
  */

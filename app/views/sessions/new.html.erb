@@ -1,4 +1,4 @@
-<h1 class="text-center">Login</h1>
+<h1 id="headline_form" class="text-center">Login</h1>
 <fieldset>
   <legend>Your Data</legend>
   <%= form_tag sessions_path do %>
@@ -14,15 +14,11 @@
       </label>
     </div>
   </div>
-  <div class="text-center">
-  <div class="actions button">
-    <%= submit_tag "Log in" %>
-  </div>
+  <div class="actions text-center">
+  <%= submit_tag "Login", class: "button" %>
   </div>
   <% end %>
 </fieldset>
-
-
 
 
 
