@@ -36,3 +36,16 @@
   font-weight: 600;
   font-style: italic;
 }
+
+#album_div {
+  background-color: transparent;
+  border: none;
+}
+
+#album_image {
+  margin-bottom: 10px;
+}
+
+#album_h5 {
+  color: #37543d;
+}

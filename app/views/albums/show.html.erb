@@ -12,7 +12,7 @@
   <div class="row">
     <dl class="sub-nav large-12 columns center hide-for-small-only">
       <dt>#</dt>
-      <dd><%= link_to "All", @album.user %></dd>
+      <dd><%= link_to "All Albums", @album.user %></dd>
       <dd><%= render partial: "playlists/playlist", collection: @plays.order('LOWER(name)') %></dd>
     </dl>
   </div>
