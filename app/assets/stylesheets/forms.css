@@ -49,3 +49,17 @@
 #album_h5 {
   color: #37543d;
 }
+
+#album_title {
+  margin-top: 20px;
+}
+
+#album_review {
+  margin: 17px 0 17px 0;
+}
+
+#counter {
+  background-color: #8de9ad;
+  color: #333333;
+  font-weight: bold;
+}

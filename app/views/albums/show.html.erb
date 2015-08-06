@@ -17,18 +17,27 @@
     </dl>
   </div>
 
-  <div class="panel callout radius">
-    <div class="text-center"><%= image_tag(@album.cover_art, size: "300x300") %></div>
-    <h3 class="text-center"><%= @album.title %></h3>
+  <div class="row panel callout radius">
+    <div class="large-4 columns text-center"><%= image_tag(@album.cover_art, size: "300x300") %></div>
+    <div class="large-8 columns">
+    <h1 id="album_title" class="text-center"><%= @album.title %></h1>
     <h3 class="text-center"><%= @album.artist %></h3>
-    <h3 class="text-center"><%= @album.year %></h3>
-    <h3 class="text-center"><%= @album.review %></h3>
-    <h3 class="text-center"><%= link_to "Album Details", @album.info_url, :target => "_blank" %></h3>
+    <h4 class="text-center"><%= @album.year %></h4>
+    <h5 id="album_review" class="text-center"><%= @album.review %></h5>
+    <div class="text-center">
+    <%= link_to "Album Details", @album.info_url, :target => "_blank", class: "tiny button" %>
+    </div>
     <% if logged_in? %>
-    <h3 class="text-center"><%= link_to "upvote", like_album_path(@album), method: :put %> <%= link_to "downvote", dislike_album_path(@album), method: :put %></h3>
+    <div class="text-center">
+    <%= link_to "Like", like_album_path(@album), method: :put, class: "tiny button" %>
+    <button id="counter" class="tiny button disabled"><%= @album.thumbs_up %></button>
+    <%= link_to "Dislike", dislike_album_path(@album), method: :put, class: "tiny button" %>
+    <button id="counter" class="tiny button disabled"><%= @album.thumbs_down %></button>
+    </div>
     <% end %>
-    <h3 class="text-center">Thumbs Up: <%= @album.thumbs_up %> Thumbs Down: <%= @album.thumbs_down %></h3>
-  </div>
+    </div>
+    </div>
+
 
   <div id="push"></div>
 </div>
