@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'errors/file_not_found'
-
-  get 'errors/unprocessable'
-
-  get 'errors/internal_server_error'
 
   get "/albums", to: redirect("/users")
   get "/playlists", to: redirect("/users")
